@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المدرسة التعليمية وهران - التميز في التعليم والتربية</title>
+    <meta name="description" content="المدرسة التعليمية وهران - نسعى لتقديم تعليم متميز يجمع بين الأصالة والمعاصرة">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Artboard%202-FfwYoYv112MeJdlUasf9jg1RKTPB8s.png" alt="شعار المدرسة التعليمية وهران" class="logo-img">
+                    <div class="logo-text">
+                        <h1>المدرسة العلمية بوهران</h1>
+                        <p>مؤسسة تعمل وفق منهج وزارة التربية الوطنية
+                        
+                        </p>
+                    </div>
+                </div>
+                <nav class="nav-desktop">
+                    <a href="#home" class="nav-link">الرئيسية</a>
+                    <a href="#mission" class="nav-link">رسالتنا</a>
+                    <a href="#goal" class="nav-link">هدفنا</a>
+                    <a href="#principles" class="nav-link">مبادئنا</a>
+                    <a href="#school-location" class="nav-link">موقعنا</a>
+                    <a href="#contact" class="nav-link">تواصل معنا</a>
+                </nav>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="فتح القائمة">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+            <nav class="nav-mobile" id="mobileNav">
+                <a href="#home" class="nav-link-mobile" onclick="closeMobileMenu()">
+                    <i class="fas fa-home"></i>
+                    <span>الرئيسية</span>
+                </a>
+                <a href="#mission" class="nav-link-mobile" onclick="closeMobileMenu()">
+                    <i class="fas fa-book"></i>
+                    <span>رسالتنا</span>
+                </a>
+                <a href="#goal" class="nav-link-mobile" onclick="closeMobileMenu()">
+                    <i class="fas fa-bullseye"></i>
+                    <span>هدفنا</span>
+                </a>
+                <a href="#principles" class="nav-link-mobile" onclick="closeMobileMenu()">
+                    <i class="fas fa-users"></i>
+                    <span>مبادئنا</span>
+                </a>
+                <a href="#contact" class="nav-link-mobile" onclick="closeMobileMenu()">
+                    <i class="fas fa-phone"></i>
+                    <span>تواصل معنا</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+    <button class="dark-mode-toggle-fixed" id="darkModeToggle" aria-label="تبديل الوضع الداكن" title="تبديل الوضع الداكن">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-logo-container">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Artboard%202-FfwYoYv112MeJdlUasf9jg1RKTPB8s.png" alt="شعار المدرسة التعليمية وهران" class="hero-logo">
+                    <div class="hero-logo-glow"></div>
+                </div>
+                <h2 class="hero-title">مرحباً بكم في موقع المدرسة الرسمي</h2>
+                <p class="hero-description">نسعى لتقديم تعليم متميز يجمع بين الأصالة والمعاصرة، لإعداد جيل واعٍ ومؤثر في مجتمعه</p>
+                <div class="hero-buttons">
+                    <a href="#mission" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        <span>تعرف على رسالتنا</span>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i>
+                        <span>تواصل معنا</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section id="mission" class="mission">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <h3>رسالتنا</h3>
+                <div class="section-divider"></div>
+            </div>
+            <div class="mission-card">
+                <div class="mission-content">
+                    <p class="mission-text">الإسهام في العمل التربوي بمنهج علمي من منطلق قرآني</p>
+                    <div class="mission-features">
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="feature-icon blue">
+                                <i class="fas fa-microscope"></i>
+                            </div>
+                            <h4>منهج علمي</h4>
+                            <p>نعتمد على أحدث الطرق العلمية في التعليم والبحث التربوي</p>
+                        </div>
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="feature-icon green">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h4>منطلق قرآني</h4>
+                            <p>نستمد قيمنا ومبادئنا من تعاليم القرآن الكريم والسنة النبوية</p>
+                        </div>
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                            <div class="feature-icon orange">
+                                <i class="fas fa-users-cog"></i>
+                            </div>
+                            <h4>عمل تربوي</h4>
+                            <p>نركز على التربية الشاملة لبناء شخصية متوازنة ومتكاملة</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Goal Section -->
+    <section id="goal" class="goal">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-icon white">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <h3 class="white-text">هدفنا</h3>
+                <div class="section-divider white"></div>
+            </div>
+            <div class="goal-card">
+                <div class="goal-content">
+                    <p class="goal-text">إعداد جيل مؤمن، فعال في محيطه، يؤثر في عصره</p>
+                    <div class="goal-features">
+                        <div class="goal-feature-card" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="goal-emoji">🤲</div>
+                            <h4>جيل مؤمن</h4>
+                            <p>متمسك بقيم الإيمان والأخلاق الفاضلة، يعبد الله على بصيرة</p>
+                        </div>
+                        <div class="goal-feature-card" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="goal-emoji">⚡</div>
+                            <h4>فعال في محيطه</h4>
+                            <p>يساهم بإيجابية في تطوير مجتمعه ويكون عضواً نافعاً فيه</p>
+                        </div>
+                        <div class="goal-feature-card" data-aos="zoom-in" data-aos-delay="300">
+                            <div class="goal-emoji">🌟</div>
+                            <h4>يؤثر في عصره</h4>
+                            <p>قادر على إحداث تغيير إيجابي ومواكبة تطورات العصر</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Principles Section -->
+    <section id="principles" class="principles">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-balance-scale"></i>
+                </div>
+                <h3>مبادئنا</h3>
+                <div class="section-divider"></div>
+            </div>
+            <div class="principles-grid">
+                <div class="principle-card blue-border" data-aos="flip-left" data-aos-delay="100">
+                    <div class="principle-header">
+                        <div class="principle-icon blue-bg">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <h4>الاجتهاد ضرورة</h4>
+                    </div>
+                    <div class="principle-content">
+                        <p>نؤمن بأن الاجتهاد والعمل الدؤوب أساس النجاح والتقدم في جميع مجالات الحياة</p>
+                    </div>
+                </div>
+
+                <div class="principle-card green-border" data-aos="flip-left" data-aos-delay="200">
+                    <div class="principle-header">
+                        <div class="principle-icon green-bg">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                        <h4>الإيمان بالتخطيط</h4>
+                    </div>
+                    <div class="principle-content">
+                        <p>التخطيط المدروس والمنهجي أساس تحقيق الأهداف والوصول للنتائج المرجوة</p>
+                    </div>
+                </div>
+
+                <div class="principle-card orange-border" data-aos="flip-left" data-aos-delay="300">
+                    <div class="principle-header">
+                        <div class="principle-icon orange-bg">
+                            <i class="fas fa-balance-scale-right"></i>
+                        </div>
+                        <h4>الخطأ والصواب موزع</h4>
+                    </div>
+                    <div class="principle-content">
+                        <p>نتقبل الآراء المختلفة ونؤمن بالحوار البناء والتعلم من التجارب المتنوعة</p>
+                    </div>
+                </div>
+
+                <div class="principle-card purple-border" data-aos="flip-left" data-aos-delay="400">
+                    <div class="principle-header">
+                        <div class="principle-icon purple-bg">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h4>العدل ملاك الأمر</h4>
+                    </div>
+                    <div class="principle-content">
+                        <p>العدالة والإنصاف أساس جميع تعاملاتنا وقراراتنا في المؤسسة التعليمية</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ركن موقعنا قبل تواصل معنا -->
+    <section id="school-location" class="school-location" style="padding: 2rem 0; background: #f7fafc; text-align: center;">
+        <div class="container">
+            <h3 style="font-size: 2rem; margin-bottom: 1rem; color: #1a365d;">موقعنا</h3>
+            <div style="display: flex; justify-content: center;">
+                <iframe src="https://www.google.com/maps?q=M8QX+G29,+Rue+frih+Brahim,+Oran,+Oran,+Algeria&output=embed" width="100%" height="380" style="max-width:600px; border:0; border-radius: 16px; box-shadow: 0 4px 24px rgba(49,130,206,0.08);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <h3>تواصل معنا</h3>
+                <p>نحن هنا للإجابة على استفساراتكم ومساعدتكم في رحلتكم التعليمية</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info-card" data-aos="fade-right">
+                    <h4>
+                        <i class="fas fa-info-circle"></i>
+                        معلومات الاتصال
+                    </h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <strong>العنوان</strong>
+                                <span>وهران، الجزائر</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <strong>الهاتف</strong>
+                                <span>05 41 68 74 93</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <strong>البريد الإلكتروني</strong>
+                                <span>sso.oran2007@gmail.com</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-media">
+                        <h5>تابعنا على وسائل التواصل</h5>
+                        <div class="social-links">
+                            <a href=" https://www.facebook.com/profile.php?id=61550964929444&mibextid=ZbWKwL" target="_blank" class="social-link facebook" title="فيسبوك">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://t.me/+W3Wehucd32JmMWVk" target="_blank" class="social-link telegram" title="تلغرام">
+                                <i class="fab fa-telegram-plane"></i>
+                            </a>
+                            <a href="https://www.instagram.com/ilmia.31?igsh=MXZoeHk5Y3I0Y3duNg==" target="_blank" class="social-link instagram" title="إنستغرام">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://youtube.com/@sso.oran31?si=jbW8RnPUzZ8Wbj4e" target="_blank" class="social-link youtube" title="يوتيوب">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="https://wa.me/213541687493" target="_blank" class="social-link whatsapp" title="واتساب">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-card" data-aos="fade-left">
+                    <h4>
+                        <i class="fas fa-paper-plane"></i>
+                        أرسل رسالة
+                    </h4>
+                    <form class="contact-form" onsubmit="submitForm(event)">
+                        <div class="form-group">
+                            <label for="name">الاسم الكامل</label>
+                            <input type="text" id="name" name="name" placeholder="أدخل اسمك الكامل" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني</label>
+                            <input type="email" id="email" name="email" placeholder="أدخل بريدك الإلكتروني" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">رقم الهاتف (اختياري)</label>
+                            <input type="tel" id="phone" name="phone" placeholder="أدخل رقم هاتفك">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">الرسالة</label>
+                            <textarea id="message" name="message" placeholder="اكتب رسالتك هنا..." rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary full-width">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>إرسال الرسالة</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Artboard%202-FfwYoYv112MeJdlUasf9jg1RKTPB8s.png" alt="شعار المدرسة التعليمية وهران">
+                    <h4>المدرسة التعليمية وهران</h4>
+                </div>
+                <p class="footer-description">نسعى لتقديم تعليم متميز يجمع بين الأصالة والمعاصرة</p>
+                <p class="footer-copyright">© 2025 المدرسة العلمية بوهران. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()" title="العودة للأعلى">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
