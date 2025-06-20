@@ -489,3 +489,31 @@ const debounce = (func, wait) => {
     }
     localStorage.setItem('darkMode', enabled ? '1' : '0');
   }
+// في نهاية ملف script.js، داخل event listener لـ DOMContentLoaded
+document.addEventListener("DOMContentLoaded", () => {
+    // ... الكود الحالي ...
+    
+    // تحسينات للجوال
+    function handleMobileView() {
+      const isMobile = window.innerWidth <= 768;
+      
+      // إيقاف بعض التأثيرات على الجوال لتجنب مشاكل الأداء
+      if (isMobile) {
+        document.querySelectorAll('[data-aos]').forEach(el => {
+          el.removeAttribute('data-aos');
+        });
+        
+        // إيقاف تأثيرات الخلفية المتحركة على الجوال
+        const heroBackground = document.querySelector('.hero-background');
+        if (heroBackground) {
+          heroBackground.style.animation = 'none';
+        }
+      }
+    }
+    
+    // استدعاء الدالة عند التحميل وعند تغيير حجم النافذة
+    handleMobileView();
+    window.addEventListener('resize', debounce(handleMobileView, 200));
+    
+    // ... باقي الكود الحالي ...
+  });

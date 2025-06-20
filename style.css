@@ -1769,4 +1769,227 @@
     justify-content: center !important;
     display: flex !important;
   }
+  /* إضافة هذه التعديلات في نهاية ملف style.css */
+
+/* تحسينات عامة للجوال */
+@media (max-width: 767px) {
+    html {
+      font-size: 14px;
+    }
+    
+    body {
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    
+    .container {
+      padding: 0 15px;
+      width: 100%;
+    }
+    
+    /* تحسين الهيدر */
+    .header {
+      padding: 0.5rem 0;
+    }
+    
+    .header-content {
+      padding: 0.5rem 0;
+    }
+    
+    .logo-img {
+      width: 50px;
+      height: 50px;
+    }
+    
+    .logo-text h1 {
+      font-size: 1.2rem;
+      margin-bottom: 0.1rem;
+    }
+    
+    .logo-text p {
+      font-size: 0.7rem;
+    }
+    
+    /* تحسين القائمة المتنقلة */
+    .nav-mobile {
+      padding: 0.5rem 0;
+    }
+    
+    .nav-link-mobile {
+      padding: 0.8rem 1rem;
+      font-size: 0.9rem;
+    }
+    
+    /* تحسين قسم البطل */
+    .hero {
+      padding: 4rem 0 2rem;
+      min-height: auto;
+    }
+    
+    .hero-title {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    
+    .hero-description {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .hero-logo {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 1rem;
+    }
+    
+    .hero-buttons {
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    
+    .btn {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      font-size: 0.9rem;
+    }
+    
+    /* تحسين الأقسام */
+    section {
+      padding: 2rem 0;
+    }
+    
+    .section-header h3 {
+      font-size: 1.8rem;
+    }
+    
+    .section-icon {
+      font-size: 2rem;
+    }
+    
+    /* تحسين البطاقات */
+    .mission-card,
+    .goal-card,
+    .principle-card,
+    .contact-info-card,
+    .contact-form-card {
+      padding: 1.5rem;
+    }
+    
+    .mission-text,
+    .goal-text {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    /* تحسين الشبكات */
+    .mission-features,
+    .goal-features,
+    .principles-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    
+    /* تحسين نموذج الاتصال */
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .form-group label {
+      font-size: 0.9rem;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+      padding: 0.8rem;
+      font-size: 0.9rem;
+    }
+    
+    /* تحسين الروابط الاجتماعية */
+    .social-links {
+      justify-content: center;
+      gap: 0.8rem;
+    }
+    
+    .social-link {
+      width: 40px;
+      height: 40px;
+      font-size: 1rem;
+    }
+    
+    /* تحسين الفوتر */
+    .footer {
+      padding: 2rem 0;
+    }
+    
+    .footer-logo img {
+      width: 40px;
+      height: 40px;
+    }
+    
+    .footer-logo h4 {
+      font-size: 1.2rem;
+    }
+    
+    .footer-description {
+      font-size: 0.9rem;
+    }
+    
+    /* تحسين أزرار العودة للأعلى وتغيير الوضع */
+    .back-to-top,
+    .dark-mode-toggle-fixed {
+      width: 40px;
+      height: 40px;
+      font-size: 1.1rem;
+      bottom: 10px;
+    }
+    
+    .back-to-top {
+      left: 10px;
+    }
+    
+    .dark-mode-toggle-fixed {
+      right: 10px;
+    }
+  }
   
+  /* تحسينات إضافية للشاشات الصغيرة جدًا */
+  @media (max-width: 480px) {
+    .hero-title {
+      font-size: 1.5rem;
+    }
+    
+    .hero-description {
+      font-size: 0.9rem;
+    }
+    
+    .hero-logo {
+      width: 80px;
+      height: 80px;
+    }
+    
+    .section-header h3 {
+      font-size: 1.5rem;
+    }
+    
+    .mission-text,
+    .goal-text {
+      font-size: 1rem;
+    }
+    
+    .feature-card,
+    .goal-feature-card {
+      padding: 1rem;
+    }
+    
+    .feature-icon,
+    .principle-icon {
+      width: 3rem;
+      height: 3rem;
+      font-size: 1.2rem;
+    }
+    
+    .contact-info-card,
+    .contact-form-card {
+      padding: 1rem;
+    }
+  }
