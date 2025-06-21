@@ -210,7 +210,7 @@
     justify-content: center;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(135deg, #53acff 0%, #ffaf47 100%);
+    background: linear-gradient(135deg, #5d4b1a 0%, #5ee7f6 100%);
   }
   
   .hero-background {
@@ -649,7 +649,7 @@
   
   /* Goal Section */
   .goal {
-    background: linear-gradient(135deg, #ffaf47 0%, #53acff 100%);
+    background: linear-gradient(135deg, #3182ce 0%, #f6e05e 100%);
     position: relative;
     overflow: hidden;
   }
