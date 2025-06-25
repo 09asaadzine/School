@@ -1,4 +1,5 @@
 /* Reset and Base Styles */
+
 * {
     margin: 0;
     padding: 0;
@@ -1986,3 +1987,49 @@
       padding: 1rem;
     }
   }
+
+/* مودال تسجيل الدخول والتسجيل */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(30,34,44,0.65);
+  z-index: 4000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s;
+}
+.modal-box {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  padding: 2.5rem 2rem 2rem 2rem;
+  min-width: 320px;
+  max-width: 95vw;
+  position: relative;
+  animation: fadeInUp 0.4s;
+}
+.modal-close {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #3182ce;
+  cursor: pointer;
+  z-index: 10;
+}
+@media (max-width: 480px) {
+  .modal-box {
+    min-width: 90vw;
+    padding: 1.2rem 0.5rem 1.5rem 0.5rem;
+  }
+}
+body.dark-mode .modal-box {
+  background: #23272f !important;
+  color: #ffe066 !important;
+}
+body.dark-mode .modal-close {
+  color: #ffe066 !important;
+}

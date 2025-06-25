@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </head>
 <body>
     <!-- Header -->
@@ -34,6 +35,7 @@
                     <a href="#principles" class="nav-link">مبادئنا</a>
                     <a href="#school-location" class="nav-link">موقعنا</a>
                     <a href="#contact" class="nav-link">تواصل معنا</a>
+                    <span id="userInfoBox" style="display:none; margin-right:1rem;"></span>
                 </nav>
                 <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="فتح القائمة">
                     <span class="hamburger-line"></span>
@@ -279,7 +281,7 @@
                             </div>
                             <div class="contact-details">
                                 <strong>الهاتف</strong>
-                                <span>05 41 68 74 93</span>
+                                <span dir="ltr" style="direction:ltr; text-align:left; display:inline-block;">0541 68 74 93</span>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -314,35 +316,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="contact-form-card" data-aos="fade-left">
-                    <h4>
-                        <i class="fas fa-paper-plane"></i>
-                        أرسل رسالة
-                    </h4>
-                    <form class="contact-form" onsubmit="submitForm(event)">
-                        <div class="form-group">
-                            <label for="name">الاسم الكامل</label>
-                            <input type="text" id="name" name="name" placeholder="أدخل اسمك الكامل" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">البريد الإلكتروني</label>
-                            <input type="email" id="email" name="email" placeholder="أدخل بريدك الإلكتروني" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">رقم الهاتف (اختياري)</label>
-                            <input type="tel" id="phone" name="phone" placeholder="أدخل رقم هاتفك">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">الرسالة</label>
-                            <textarea id="message" name="message" placeholder="اكتب رسالتك هنا..." rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary full-width">
-                            <i class="fas fa-paper-plane"></i>
-                            <span>إرسال الرسالة</span>
-                        </button>
-                    </form>
-                </div>
             </div>
         </div>
     </section>
@@ -365,6 +338,49 @@
     <button class="back-to-top" id="backToTop" onclick="scrollToTop()" title="العودة للأعلى">
         <i class="fas fa-chevron-up"></i>
     </button>
+
+    <!-- نافذة المودال لتسجيل الدخول -->
+    <div class="modal-overlay" id="loginModal" style="display:none;">
+      <div class="modal-box">
+        <button class="modal-close" id="closeLoginModal">&times;</button>
+        <h3 style="text-align:center;">تسجيل الدخول</h3>
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="loginEmail">البريد الإلكتروني</label>
+            <input type="email" id="loginEmail" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">كلمة المرور</label>
+            <input type="password" id="loginPassword" name="password" required>
+          </div>
+          <button type="submit" class="btn btn-primary full-width">دخول</button>
+        </form>
+        <p style="text-align:center; margin-top:1rem;">ليس لديك حساب؟ <a href="#" id="showRegisterModal">سجل الآن</a></p>
+      </div>
+    </div>
+    <!-- نافذة المودال للتسجيل -->
+    <div class="modal-overlay" id="registerModal" style="display:none;">
+      <div class="modal-box">
+        <button class="modal-close" id="closeRegisterModal">&times;</button>
+        <h3 style="text-align:center;">إنشاء حساب جديد</h3>
+        <form id="registerForm">
+          <div class="form-group">
+            <label for="registerName">الاسم الكامل</label>
+            <input type="text" id="registerName" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="registerEmail">البريد الإلكتروني</label>
+            <input type="email" id="registerEmail" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="registerPassword">كلمة المرور</label>
+            <input type="password" id="registerPassword" name="password" required>
+          </div>
+          <button type="submit" class="btn btn-primary full-width">تسجيل</button>
+        </form>
+        <p style="text-align:center; margin-top:1rem;">لديك حساب بالفعل؟ <a href="#" id="showLoginModal">دخول</a></p>
+      </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

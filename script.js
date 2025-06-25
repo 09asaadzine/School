@@ -127,7 +127,7 @@ const debounce = (func, wait) => {
     }
   
     if (phone && phone.length > 0) {
-      const phoneRegex = /^[+]?[0-9\s\-$$$$]{8,}$/
+      const phoneRegex = /^[+]?\d{8,}$/
       if (!phoneRegex.test(phone)) {
         errors.push("يرجى إدخال رقم هاتف صحيح")
       }
@@ -152,13 +152,26 @@ const debounce = (func, wait) => {
     // Add loading class to form
     form.classList.add("loading")
   
-    setTimeout(() => {
+    // إرسال عبر emailjs
+    emailjs.send('service_xxx', 'template_xxx', {
+      from_name: name,
+      from_email: email,
+      phone: phone,
+      message: message,
+      to_email: 'sso.oran2007@gmail.com'
+    })
+    .then(function(response) {
       showNotification("تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.", "success")
       form.reset()
       submitBtn.innerHTML = originalContent
       submitBtn.disabled = false
       form.classList.remove("loading")
-    }, 2000)
+    }, function(error) {
+      showNotification("حدث خطأ أثناء إرسال الرسالة. حاول مرة أخرى.", "error")
+      submitBtn.innerHTML = originalContent
+      submitBtn.disabled = false
+      form.classList.remove("loading")
+    });
   }
   
   // Notification System
@@ -421,6 +434,9 @@ const debounce = (func, wait) => {
   
   // Initialize Everything
   document.addEventListener("DOMContentLoaded", () => {
+    if (window.emailjs) {
+      emailjs.init('YOUR_USER_ID'); // ضع هنا userID الخاص بك من emailjs
+    }
     // Initialize all features
     initPageLoading()
     initAOS()
@@ -489,31 +505,145 @@ const debounce = (func, wait) => {
     }
     localStorage.setItem('darkMode', enabled ? '1' : '0');
   }
-// في نهاية ملف script.js، داخل event listener لـ DOMContentLoaded
-document.addEventListener("DOMContentLoaded", () => {
-    // ... الكود الحالي ...
-    
-    // تحسينات للجوال
-    function handleMobileView() {
-      const isMobile = window.innerWidth <= 768;
-      
-      // إيقاف بعض التأثيرات على الجوال لتجنب مشاكل الأداء
-      if (isMobile) {
-        document.querySelectorAll('[data-aos]').forEach(el => {
-          el.removeAttribute('data-aos');
+  
+  // --- كود المودال لتسجيل الدخول والتسجيل ---
+  function showModal(id) {
+    document.getElementById(id).style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+  function hideModal(id) {
+    document.getElementById(id).style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  // فتح المودال من الهيدر أو الموبايل
+  const openLoginModalBtn = document.getElementById('openLoginModal');
+  if (openLoginModalBtn) openLoginModalBtn.onclick = () => showModal('loginModal');
+  const openLoginModalMobileBtn = document.getElementById('openLoginModalMobile');
+  if (openLoginModalMobileBtn) openLoginModalMobileBtn.onclick = () => { closeMobileMenu(); showModal('loginModal'); };
+  // إغلاق المودال
+  const closeLoginModalBtn = document.getElementById('closeLoginModal');
+  if (closeLoginModalBtn) closeLoginModalBtn.onclick = () => hideModal('loginModal');
+  const closeRegisterModalBtn = document.getElementById('closeRegisterModal');
+  if (closeRegisterModalBtn) closeRegisterModalBtn.onclick = () => hideModal('registerModal');
+  // التحويل بين المودالين
+  const showRegisterModalLink = document.getElementById('showRegisterModal');
+  if (showRegisterModalLink) showRegisterModalLink.onclick = (e) => { e.preventDefault(); hideModal('loginModal'); showModal('registerModal'); };
+  const showLoginModalLink = document.getElementById('showLoginModal');
+  if (showLoginModalLink) showLoginModalLink.onclick = (e) => { e.preventDefault(); hideModal('registerModal'); showModal('loginModal'); };
+  // إغلاق عند الضغط خارج الصندوق
+  ['loginModal','registerModal'].forEach(id => {
+    const modal = document.getElementById(id);
+    if (modal) {
+      modal.addEventListener('click', e => {
+        if (e.target === modal) hideModal(id);
+      });
+    }
+  });
+  // إرسال نموذج التسجيل
+  const registerForm = document.getElementById('registerForm');
+  if (registerForm) {
+    registerForm.onsubmit = async function(e) {
+      e.preventDefault();
+      const name = document.getElementById('registerName').value.trim();
+      const email = document.getElementById('registerEmail').value.trim();
+      const password = document.getElementById('registerPassword').value;
+      try {
+        const res = await fetch('http://localhost:5000/api/auth/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, password })
         });
-        
-        // إيقاف تأثيرات الخلفية المتحركة على الجوال
-        const heroBackground = document.querySelector('.hero-background');
-        if (heroBackground) {
-          heroBackground.style.animation = 'none';
+        const data = await res.json();
+        if (res.ok) {
+          showNotification('تم إنشاء الحساب بنجاح! يمكنك الآن تسجيل الدخول.', 'success');
+          hideModal('registerModal');
+          showModal('loginModal');
+        } else {
+          showNotification(data.message || 'حدث خطأ أثناء التسجيل', 'error');
         }
+      } catch (err) {
+        showNotification('فشل الاتصال بالخادم', 'error');
       }
     }
+  }
+  // إرسال نموذج الدخول
+  const loginForm = document.getElementById('loginForm');
+  if (loginForm) {
+    loginForm.onsubmit = async function(e) {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail').value.trim();
+      const password = document.getElementById('loginPassword').value;
+      try {
+        const res = await fetch('http://localhost:5000/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+        const data = await res.json();
+        if (res.ok) {
+          showNotification('تم تسجيل الدخول بنجاح!', 'success');
+          hideModal('loginModal');
+          localStorage.setItem('token', data.token);
+          localStorage.setItem('user', JSON.stringify(data.user));
+          updateUserInfoBox();
+        } else {
+          showNotification(data.message || 'حدث خطأ أثناء تسجيل الدخول', 'error');
+        }
+      } catch (err) {
+        showNotification('فشل الاتصال بالخادم', 'error');
+      }
+    }
+  }
+  
+  // تحسينات للجوال
+  function handleMobileView() {
+    const isMobile = window.innerWidth <= 768;
     
-    // استدعاء الدالة عند التحميل وعند تغيير حجم النافذة
-    handleMobileView();
-    window.addEventListener('resize', debounce(handleMobileView, 200));
-    
-    // ... باقي الكود الحالي ...
-  });
+    // إيقاف بعض التأثيرات على الجوال لتجنب مشاكل الأداء
+    if (isMobile) {
+      document.querySelectorAll('[data-aos]').forEach(el => {
+        el.removeAttribute('data-aos');
+      });
+      
+      // إيقاف تأثيرات الخلفية المتحركة على الجوال
+      const heroBackground = document.querySelector('.hero-background');
+      if (heroBackground) {
+        heroBackground.style.animation = 'none';
+      }
+    }
+  }
+  
+  // استدعاء الدالة عند التحميل وعند تغيير حجم النافذة
+  handleMobileView();
+  window.addEventListener('resize', debounce(handleMobileView, 200));
+  
+  // --- عرض اسم المستخدم في الهيدر بعد تسجيل الدخول ---
+  function updateUserInfoBox() {
+    const userInfoBox = document.getElementById('userInfoBox');
+    const openLoginModalBtn = document.getElementById('openLoginModal');
+    const userStr = localStorage.getItem('user');
+    if (userStr) {
+      const user = JSON.parse(userStr);
+      userInfoBox.innerHTML = `<span style="font-weight:700;color:#3182ce"><i class='fas fa-user'></i> ${user.name}</span> <button id='logoutBtn' class='btn btn-secondary' style='margin-right:8px;font-size:0.95rem;padding:0.4rem 1.1rem;'>تسجيل خروج</button>`;
+      userInfoBox.style.display = 'inline-block';
+      if (openLoginModalBtn) openLoginModalBtn.style.display = 'none';
+      // زر تسجيل الخروج
+      setTimeout(() => {
+        const logoutBtn = document.getElementById('logoutBtn');
+        if (logoutBtn) {
+          logoutBtn.onclick = function() {
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+            showNotification('تم تسجيل الخروج بنجاح', 'success');
+            updateUserInfoBox();
+          }
+        }
+      }, 100);
+    } else {
+      userInfoBox.innerHTML = '';
+      userInfoBox.style.display = 'none';
+      if (openLoginModalBtn) openLoginModalBtn.style.display = '';
+    }
+  }
+  // استدعاء عند تحميل الصفحة وبعد تسجيل الدخول/الخروج
+  window.addEventListener('DOMContentLoaded', updateUserInfoBox);
